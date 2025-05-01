@@ -58,22 +58,49 @@ if __name__ == '__main__':
 
      # Crear el gráfico
 
-    response = requests.get(url)
-    data = json.loads(response.text)
-    data = response.json()
+response = requests.get(url)
+data = response.json()
 
-    lista_userId=[1,2,3,4,5,6,7,8,9,10]
-    lista_completed=[]
+lista_usuarios = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+lista_completadas = []
 
-    for i in lista_userId:
-        suma = 0
-        for user in data:
-            if user['userId'] == i and user['completed'] == True:
-                suma = suma + 1
-        lista_completed.append(suma)
+for i in lista_usuarios:
+    conteo = 0
+    for x in data:
+        if x['userId'] == i and x['completed'] == True:
+            conteo = conteo + 1
+    lista_completadas.append(conteo)
+    
+plt.bar(lista_usuarios, lista_completadas, color='orange')
+
+plt.xlabel('Usuario')
+plt.ylabel('Tareas completadas')
+plt.title('Desempeño general')
+plt.grid(True, linestyle= '--', alpha=0.5, color='black')
+plt.legend(['Tareas completas'])
+plt.show()
+
+
+
+
+
+
+    # response = requests.get(url)
+    # data = json.loads(response.text)
+    # data = response.json()
+
+    # lista_userId=[1,2,3,4,5,6,7,8,9,10]
+    # lista_completed=[]
+
+    # for i in lista_userId:
+    #     suma = 0
+    #     for user in data:
+    #         if user['userId'] == i and user['completed'] == True:
+    #             suma = suma + 1
+    #     lista_completed.append(suma)
         
-    #print(lista_completed)        
+    # #print(lista_completed)        
 
-    bar_plot(lista_userId,lista_completed)
+    # bar_plot(lista_userId,lista_completed)
 
-    print("terminamos")
+print("terminamos")

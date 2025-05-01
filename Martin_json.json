@@ -1,0 +1,23 @@
+{
+    "nombre": "Martin",
+    "apellido": "Ocampo",
+    "DNI": "7576281",
+    "prendas": [
+        {
+            "individual": "zapatillas",
+            "cantidad": 4
+        },
+        {
+            "individual": "remeras",
+            "cantidad": 2
+        },
+        {
+            "individual": "pantalones",
+            "cantidad": 6
+        },
+        {
+            "individual": "medias",
+            "cantidad": 10
+        }
+    ]
+}

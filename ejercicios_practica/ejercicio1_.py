@@ -31,26 +31,25 @@ def serializar():
     # un archivo que usted defina
 
     # Observe el archivo y verifique que se almaceno lo deseado
+    print('Desarrollo 1')
+    print('')
 
-    mipersona = {
-                  "nombre": "Jesus",
-                  "apellido": "Gonzalez",
-                  "DNI": "26701556",
-                  "elementos_vestir": [
-                      {
-                       "prenda": "chaleco", 
-                       "cantidad": 4
-                      },
-                      {
-                       "prenda": "zapato",
-                       "cantidad": 12
-                      }
-                      ]
-                   }
-
-    with open('mi_persona_json.json', 'w') as jsonfile:
-        data = [mipersona]
+    martin = { "nombre": "Martin",
+              "apellido": "Ocampo",
+              "DNI": "7576281",
+              "prendas": [
+                  {"individual": "zapatillas", "cantidad": 4},
+                  {"individual": "remeras", "cantidad": 2},
+                  {"individual": "pantalones", "cantidad":6},
+                   {"individual": "medias", "cantidad": 10},
+                ]
+                }
+    
+    with open('Martin_json.json', 'w') as jsonfile:
+        data = (martin)
         json.dump(data, jsonfile, indent=4)
+    
+    print('El archivo fue creado con exito.')
 
 def deserializar():
     print("Funcion que lee un archivo JSON")
@@ -63,41 +62,19 @@ def deserializar():
     # el método "dumps" y finalmente imprimir en pantalla el resultado
     # Recuerde utilizar indent=4 para poder observar mejor el resultado
     # en pantalla y comparelo contra el JSON que generó en la función anterior
+    print('')
+    print('Desarrollo 2')
+    print('')
 
-    mipersona = {
-                  "nombre": "Jesus",
-                  "apellido": "Gonzalez",
-                  "DNI": "26701556",
-                  "elementos_vestir": [
-                      {
-                       "prenda": "chaleco", 
-                       "cantidad": 4
-                      },
-                      {
-                       "prenda": "zapato",
-                       "cantidad": 12
-                      }
-                      ]
-                   }
 
-    with open('mi_persona_json.json', 'r') as jsonfile:
-        current_data = json.load(jsonfile)
-        current_data.append(mipersona)
-
-    with open('mi_persona_json.json', 'w') as jsonfile:
-        json.dump(current_data, jsonfile, indent=4)
-
-    with open('mi_persona_json.json', 'r') as jsonfile:
+    with open('Martin_json.json', 'r') as jsonfile:
         json_data = json.load(jsonfile)
 
-    print('Mostrar el contenido del archivo mi_persona_json')
-    print(json.dumps(json_data, indent=4))
-
-
-if __name__ == '__main__':
-    print("Bienvenidos a otra clase con Python")
-    
-    serializar()
-    deserializar()
+    json_string = json.dumps(json_data, indent=4)
+    print(json_string)
 
     print("terminamos")
+
+serializar()
+deserializar()
+
